@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Multi-Model AI Chat</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <h1>AI Chat</h1>
+            </div>
+
+            <p class="sidebar-label">ASSIGNMENT #13</p>
+
+            <div class="model-section">
+                <label for="model">Select AI Model</label>
+
+                <select id="model">
+                    <option value="haiku">
+                        Claude Haiku 4.5
+                    </option>
+
+                    <option value="sonnet">
+                        Claude Sonnet 4.6
+                    </option>
+                </select>
+            </div>
+
+            <button id="clearBtn" class="clear-btn">
+                Clear Conversation
+            </button>
+
+            <div class="sidebar-bottom">
+                <p>Powered by Anthropic Claude</p>
+                <p>Python Flask + JavaScript</p>
+            </div>
+        </aside>
+
+        <main class="main">
+
+            <header class="chat-header">
+                <div>
+                    <h2>Multi-Model AI Assistant</h2>
+                    <p id="activeModel">
+                        Claude Haiku 4.5
+                    </p>
+                </div>
+
+                <span class="status">
+                    <span class="status-dot"></span>
+                    Ready
+                </span>
+            </header>
+
+            <section id="chatBox"
+                     class="chat-box"
+                     aria-live="polite">
+
+                <div class="welcome" id="welcome">
+                    <div class="welcome-icon">✦</div>
+
+                    <h2>How can I help you?</h2>
+
+                    <p>
+                        Select a Claude model and
+                        start your conversation.
+                    </p>
+                </div>
+
+            </section>
+
+            <div class="input-area">
+
+                <div id="errorBox"
+                     class="error-box"
+                     role="alert"
+                     hidden></div>
+
+                <div class="input-container">
+
+                    <textarea
+                        id="messageInput"
+                        placeholder="Message Claude..."
+                        rows="1"
+                        maxlength="4000"
+                        aria-label="Your message"
+                    ></textarea>
+
+                    <button id="sendBtn"
+                            type="button">
+                        Send
+                    </button>
+
+                </div>
+
+                <p class="footer-note">
+                    Press Enter to send ·
+                    Shift + Enter for a new line
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+</body>
+</html>
